@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fullth.tic.mapper.ErrBoardMapper">
+	<select id="selectErrList" resultType="com.fullth.tic.domain.ErrBoard"> 
+		SELECT idx
+			 , title
+			 , contents
+		FROM ERR_BOARD 
+		ORDER BY idx
+	</select>
+	
+	<insert id="insertErr">
+		INSERT INTO ERR_BOARD 
+		(
+			   idx
+			 , title
+			 , contents
+		)
+		VALUES 
+		(
+			   (SELECT NVL(MAX(idx),0)+ 1 FROM ERR_BOARD)
+			 , #{title}
+			 , #{contents}
+		)
+	</insert>
+</mapper>
+
