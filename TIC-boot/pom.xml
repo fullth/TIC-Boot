@@ -9,11 +9,11 @@
 		<version>2.4.4</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ith</groupId>
-	<artifactId>ErrorBoard</artifactId>
+	<groupId>com.fullth</groupId>
+	<artifactId>tic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ErrorBoard</name>
-	<description>Demo project for Spring Boot</description>
+	<name>tic</name>
+	<description>SpringBoot project for TIC</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
