@@ -24,6 +24,7 @@ public class PropReader {
 	            // Get Naver API prop.
 	            propList.add(properties.getProperty("CLIENT_ID"));
 	            propList.add(properties.getProperty("CLIENT_SECRET"));
+	            propList.add(properties.getProperty("REQUEST_URL"));
 	            // Get Kakao API prop.
 	            // TODO Consider how to provide individual APIs 
 	            propList.add(properties.getProperty("KAKAO_JS_KEY"));
