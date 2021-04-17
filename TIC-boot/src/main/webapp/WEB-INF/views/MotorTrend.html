@@ -3,8 +3,35 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>MotorTrend</title>
+		<!-- Temp Style -->
+		<style type="text/css">
+		.news {
+			border: solid black 1px;
+			width: 700px;
+			height: 100px;
+			padding-top: 20px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-top: 10px;	
+		}
+		</style>
 	</head>
-	<div layout:fragment="content">
-		Content
+	<div layout:fragment="content-fluid">
+		<tbody>
+			<tr th:each="item : ${items}">
+				<div class="container h-100">
+					<div class="row">
+						<a th:href="${item.link}">
+							<div class="col">Thumbnail</div>
+							<div class="news col">
+								<td th:text="${item.title}" /> <br>
+								<td th:text="${item.description}" />
+								<br><br><br>
+							</div>
+						</a>
+					</div>
+				</div>
+			</tr>
+		</tbody>
 	</div>
 </html>

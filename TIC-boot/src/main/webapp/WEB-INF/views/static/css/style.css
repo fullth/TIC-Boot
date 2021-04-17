@@ -1,0 +1,9 @@
+.news {
+	border: solid black 1px;
+	width: 700px;
+	height: 100px;
+	padding-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 10px;	
+}

@@ -42,7 +42,7 @@ public class MotorTrendService {
 
 		try {
 			String search = URLEncoder.encode(keyword, "UTF-8");
-			apiURL += "?query=" + search;
+			apiURL += "?query=" + search + "&display=3";
 			URL url = new URL(apiURL);
 
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
