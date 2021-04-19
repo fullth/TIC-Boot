@@ -1,9 +1,38 @@
-.news {
-	border: solid black 1px;
-	width: 700px;
-	height: 100px;
+body {
 	padding-top: 20px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-top: 10px;	
+}
+
+.row {
+	text-align: center;
+	display: flex;
+}
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: blue;
+	text-decoration: node;
+}
+
+.col {
+	display: inline-block;
+	border: solid black 1px;
+}
+
+.news {
+	width: 700px;
+	height: 200px;
+}
+
+.thumbnail {
+	width: 200px;
+	height: 200px;
 }

@@ -1,34 +1,55 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/default">
-	<head>
-		<meta charset="UTF-8" />
+<html xmlns:th="http://www.thymeleaf.org" >
+	<head th:replace="fragments/config.html :: configFragment">
 		<title>MotorTrend</title>
-		<!-- Temp Style -->
-		<style type="text/css">
-		.news {
-			border: solid black 1px;
-			width: 700px;
-			height: 100px;
+		<style>
+		body {
 			padding-top: 20px;
-			padding-left: 10px;
-			padding-right: 10px;
-			margin-top: 10px;	
+		}		
+		.row {
+			text-align: center;
+			display: flex;
+		}		
+		a:link {
+			color: black;
+			text-decoration: none;
+		}		
+		a:visited {
+			color: black;
+			text-decoration: none;
+		}		
+		a:hover {
+			color: blue;
+			text-decoration: node;
+		}		
+		.col {
+			display: inline-block;
+			border: solid black 1px;
+		}		
+		.news {
+			width: 700px;
+			height: 200px;
+		}		
+		.thumbnail {
+			width: 200px;
+			height: 200px;
 		}
-		</style>
+		</style>		
 	</head>
 	<div layout:fragment="content-fluid">
 		<tbody>
 			<tr th:each="item : ${items}">
-				<div class="container h-100">
+				<div class="container">
 					<div class="row">
+						<div class="col thumbnail">
+							Thumbnail
+						</div>
+						<div class="col news">
 						<a th:href="${item.link}">
-							<div class="col">Thumbnail</div>
-							<div class="news col">
-								<td th:text="${item.title}" /> <br>
-								<td th:text="${item.description}" />
-								<br><br><br>
-							</div>
+							<h3><td th:text="${item.title}" /></h3> <br>
 						</a>
+							<td th:text="${item.description}" />
+						</div>
 					</div>
 				</div>
 			</tr>
