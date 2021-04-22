@@ -15,9 +15,16 @@
 						</a>
 							<td th:text="${item.description}" />
 						</div>
+						<form th:action="@{/motorScrap}" th:objcet="Motor" method="get">
+							<input type="hidden" name="title" th:value="${item.title}">
+							<input type="hidden" name="link" th:value="${item.link}">
+							<button type="submit" class="btn btn-primary" >Scarp</button>
+						</form>
 					</div>
 				</div>
 			</tr>
 		</tbody>
+		</div>
+		</form>
 	</div>
 </html>

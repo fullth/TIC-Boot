@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fullth.tic.mapper.MotorTrendMapper">
+	<select id="selectMotorScrapList" resultType="com.fullth.tic.domain.Motor"> 
+		SELECT NEWS_IDX
+			 , NEWS_TITLE
+			 , NEWS_LINK
+		FROM MTR_TRD_SCRAP 
+		ORDER BY NEWS_IDX
+	</select>
+	
+	<insert id="insertMotorScrapList">
+		INSERT INTO MTR_TRD_SCRAP 
+		(
+			   NEWS_IDX
+			 , NEWS_TITLE
+			 , NEWS_LINK
+		)
+		VALUES 
+		(
+			   SCRAP_IDX_SEQ.NEXTVAL
+			 , #{NEWS_TITLE}
+			 , #{NEWS_LINK}
+		)
+	</insert>
+</mapper>
+
