@@ -67,7 +67,7 @@ public class TestJunit {
     @DisplayName("😱")
     void testWithDisplayNameContainingEmoji() {
     }
-    
+     
     @Test
     void standardAssertions() {
     	assertEquals(1,1);
