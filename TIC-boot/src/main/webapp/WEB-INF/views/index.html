@@ -4,5 +4,12 @@
 		<meta charset="UTF-8" />
 		<title>Insert title here</title>
 	</head>
-	<div layout:fragment="content">Content</div>
+	<div layout:fragment="content">
+		<h4 sec:authorize="isAuthenticated()">
+			Hi, <span sec:authentication="name"></span> !
+		</h4> <hr>
+		<a sec:authorize="isAnonymous()" th:href="@{/member/login}">Login</a>
+		<a sec:authorize="isAuthenticated()" th:href="@{/member/logout}">Logout</a>
+		<a sec:authorize="isAnonymous()" th:href="@{/member/signup}">Join</a>
+	</div>
 </html>

@@ -29,7 +29,6 @@ a:hover {
 }
 
 .news {
-	width: 700px;
 	height: 200px;
 }
 
@@ -37,4 +36,8 @@ a:hover {
 	width: 200px;
 	height: 200px;
 	margin: 0
+}
+
+.scrap>.btn {
+	height: 200px;
 }

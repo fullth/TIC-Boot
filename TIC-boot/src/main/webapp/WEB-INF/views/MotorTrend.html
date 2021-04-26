@@ -6,16 +6,18 @@
 			<tr th:each="item : ${items}">
 				<div class="container">
 					<div class="row">
+						<!--
 						<div class="col thumbnail">
 							Thumbnail
-						</div>
+						</div>  
+						-->
 						<div class="col news">
 						<a th:href="${item.link}">
 							<h3><td th:text="${item.title}" /></h3> <br>
 						</a>
 							<td th:text="${item.description}" />
 						</div>
-						<form th:action="@{/motorScrap}" th:objcet="Motor" method="get">
+						<form class="scrap" th:action="@{/motorScrap}" th:objcet="Motor" method="get">
 							<input type="hidden" name="title" th:value="${item.title}">
 							<input type="hidden" name="link" th:value="${item.link}">
 							<button type="submit" class="btn btn-primary" >Scarp</button>

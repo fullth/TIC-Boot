@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+	<head th:replace="fragments/config.html :: configFragment"></head>
+	<div layout:fragment="content">
+		<h4>Join </h4>
+		<hr>
+		<form action="/member/signup" th:object="${member}" method="post">
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value=${_csrf.token} />
+			<!-- th:field="*{username}" = id="username" name="username" -->
+			<input type="text" th:field="*{username}" placeholder="ID">
+			<input type="password" th:field="*{password}" placeholder="PW">
+			<button type="submit">Login</button>
+		</form>
+	</div>
+</html>
