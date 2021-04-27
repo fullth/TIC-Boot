@@ -7,7 +7,11 @@
 	<div layout:fragment="content">
 		<h4 sec:authorize="isAuthenticated()">
 			Hi, <span sec:authentication="name"></span> !
-		</h4> <hr>
+		</h4 > 
+		<h4 sec:authorize="isAnonymous()">
+			Welcome!
+		</h4>
+		<hr>
 		<a sec:authorize="isAnonymous()" th:href="@{/member/login}">Login</a>
 		<a sec:authorize="isAuthenticated()" th:href="@{/member/logout}">Logout</a>
 		<a sec:authorize="isAnonymous()" th:href="@{/member/signup}">Join</a>

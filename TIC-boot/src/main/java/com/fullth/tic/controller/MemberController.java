@@ -37,4 +37,9 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
+	
+	@GetMapping("/member/failLogin")
+	public String loginFail() {
+		return "member/failLogin";
+	}
 }
