@@ -27,6 +27,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	AuthFailureHandler AuthFailureHandler;
 	
+	@Autowired
+	AuthProvider authProvider;
+	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -39,24 +42,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		
+		// authorizeRequests
 		http.authorizeRequests()
 			.antMatchers("/**")
-				.permitAll()
-				.and()
-			.formLogin()
-				// .loginPage를 설정하지 않고 /login에 접속하면 기본제공 레이아웃이 뜬다.
-				.loginPage("/member/login")
-				// 커스텀 로그인보다 앞에 작성하게되면 기본제공 레이아웃을 사용하게 된다.
-				.failureHandler(AuthFailureHandler)
-				.defaultSuccessUrl("/")
-				.permitAll()
-				.and()
-			.logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
-				.logoutSuccessUrl("/")
-				.invalidateHttpSession(true)
-				.and()
-			.exceptionHandling();				
+			.permitAll();
+		
+		// formLogin
+		http.formLogin()
+			.loginPage("/member/login") 		// .loginPage를 설정하지 않고 /login에 접속하면 기본제공 레이아웃이 뜬다.
+			.failureHandler(AuthFailureHandler) // 커스텀 로그인보다 앞에 작성하게되면 기본제공 레이아웃을 사용하게 된다.
+			.defaultSuccessUrl("/")
+			.permitAll();
+			
+		// logout
+		http.logout()
+			.logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+			.logoutSuccessUrl("/")
+			.invalidateHttpSession(true);
+			
+		// exceptionHandling
+		http.exceptionHandling()
+			.accessDeniedPage("403Page");			
+		
+		// authenticationProvider
+		http.authenticationProvider(authProvider);
 	}
 	
 	@Override
