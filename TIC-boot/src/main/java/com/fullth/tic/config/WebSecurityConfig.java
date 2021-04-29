@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			
 		// exceptionHandling
 		http.exceptionHandling()
-			.accessDeniedPage("403Page");			
+			.accessDeniedPage("/403Page");			
 		
 		// authenticationProvider
 		http.authenticationProvider(authProvider);
