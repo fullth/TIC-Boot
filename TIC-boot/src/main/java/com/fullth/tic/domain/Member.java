@@ -18,11 +18,7 @@ public class Member {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@NotBlank(message ="Input ID")
 	private String username;
-	
-	@NotBlank(message ="Input PW")
 	private String password;
 	
 	@Builder

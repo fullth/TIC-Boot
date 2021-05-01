@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Thymeleaf</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+
+<body>
+	<h1>Err</h1>
+
+	<form action="/insertErr" method="post">
+		에러제목 : <input type="text" name="errTitle" th:value="${errTitle}" /> <br><br>
+		에러내용 : <input type="text" name="errContents" th:value="${errContents}" /> <br><br>
+		<input type="submit" value="등록" />
+		<a href="/test">에러목록</a>
+	</form>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

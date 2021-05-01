@@ -30,6 +30,24 @@ public class MemberService implements UserDetailsService{
 	@Autowired
 	private MemberRepository memberRepository;
 	
+	/**
+	 * <pre>
+	 * 1. 개요 : Validation 처리 
+	 * 2. 처리내용 :
+	 * 		- 
+	 * </pre>
+	 * @Method Name : 	validateHandling
+	 * @history 	:
+	 * -------------------------------------------------------------------
+	 * 변경일			변경내용
+	 * -------------------------------------------------------------------
+	 * 2021.05.01	최초 작성
+	 * -------------------------------------------------------------------
+	 *
+	 * @param errors
+	 * @return validatorResult 유효성 처리 결과 메세지 
+	 * @throws 
+	 */
     public Map<String, String> validateHandling(Errors errors) {
         Map<String, String> validatorResult = new HashMap<>();
 

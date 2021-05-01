@@ -35,11 +35,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	
+	// 인증을 무시할 디렉토리를 지정(=항상 통과) 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/css/**");
 	}
 	
+	// HttpSecurity를 통해 HTTP요청에 대한 웹 기반 보안을 구성 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		

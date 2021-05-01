@@ -1,5 +1,7 @@
 package com.fullth.tic.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import com.fullth.tic.domain.Member;
 
 import lombok.Builder;
@@ -12,7 +14,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class MemberDTO {
 	private Long id;
+	
+	@NotBlank(message ="ID Required")
 	private String username;
+
+	@NotBlank(message ="PW Required")
 	private String password;
 	
 	public Member toEntity() {
