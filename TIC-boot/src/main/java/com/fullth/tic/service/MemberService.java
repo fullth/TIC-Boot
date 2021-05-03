@@ -50,7 +50,9 @@ public class MemberService implements UserDetailsService{
 	 */
     public Map<String, String> validateHandling(Errors errors) {
         Map<String, String> validatorResult = new HashMap<>();
-
+        
+        System.out.println("@@@ ValidateHandling() called @@@");
+        
         for (FieldError error : errors.getFieldErrors()) {
             String validKeyName = String.format("valid_%s", error.getField());
             validatorResult.put(validKeyName, error.getDefaultMessage());
