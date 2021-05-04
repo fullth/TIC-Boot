@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" >
 	<head th:replace="fragments/config.html :: configFragment"></head>
+	<script>
+	function validateForm() {
+	  const id = document.forms["loginForm"]["username"].value;
+	  const pw = document.forms["loginForm"]["password"].value;
+	  
+	  if (id == "" || pw == "") {
+	    alert("아이디와 패스워드를 모두 입력하세요.");
+	    return false;
+	  }
+	}
+	</script>
 	<div layout:fragment="content">
 		<h4>Login</h4>
 		<hr>
-		<form action="/member/login" method="post">
+		<form name="loginForm" action="/member/login" method="post">
 			<!-- Create csrf token -->
 			<!-- SpringSecurity가 적용되면 POST요청에 CSRF 토큰이 반드시 필요  -->
 			<input type="hidden" th:name="${_csrf.parameterName}" th:value=${_csrf.token} />
 			<input type="text" name="username" placeholder="ID">
 			<input type="password" name="password" placeholder="PW">
-			<button type="submit">Login</button>
+			<button th:onclick="validateForm()" type="submit">Login</button>
 		</form>
 	</div>
 </html>
