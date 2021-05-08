@@ -24,30 +24,27 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@GetMapping("/member/login")
-	public String login() {
-		return "member/loginForm";
-	}
-	
-	@GetMapping("/member/signup")
-	public String signupForm(@Valid MemberDTO memberDTO, Errors errors, Model model) {
-		
+	public String login(@Valid MemberDTO memberDTO, Errors errors, Model model) {
 		if(errors.hasErrors()) {
 			// 실패시 입력한 데이터 유지를 위해
 			// model.addAttribute("member", new MemberDTO());
 			
 			// 유효성 통과 못한 필드와 메시지를 핸들링
-            Map<String, String> validatorResult = memberService.validateHandling(errors);
-            for (String key : validatorResult.keySet()) {
-                model.addAttribute(key, validatorResult.get(key));
-                System.out.println(validatorResult.get(key));
-            }
-            System.out.println("로그인 실패 ");
-            
-            return "member/signupForm";
+			Map<String, String> validatorResult = memberService.validateHandling(errors);
+			for (String key : validatorResult.keySet()) {
+				model.addAttribute(key, validatorResult.get(key));
+				System.out.println(validatorResult.get(key));
+			}
+			System.out.println("로그인 실패 ");
+			
+			return "member/signupForm";
 		}
-		
 		model.addAttribute("member", new MemberDTO());
-		
+		return "member/loginForm";
+	}
+	
+	@GetMapping("/member/signup")
+	public String signupForm() {
 		return "member/signupForm";
 	}
 	
