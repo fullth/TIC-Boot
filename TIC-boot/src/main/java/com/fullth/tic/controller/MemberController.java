@@ -37,7 +37,7 @@ public class MemberController {
 			}
 			System.out.println("로그인 실패 ");
 			
-			return "member/signupForm";
+			return "member/loginFormß";
 		}
 		model.addAttribute("member", new MemberDTO());
 		return "member/loginForm";

@@ -13,7 +13,7 @@
 			Welcome!
 		</h4>
 		<hr>
-		<a sec:authorize="isAnonymous()" th:href="@{/member/login}">Login</a>
+		<a sec:authorize="isAnonymous()" th:href="@{/login}">Login</a>
 			<a sec:authorize="isAuthenticated()" th:href="@{/errBoard}">ErrorStatus</a>
 		<a sec:authorize="isAuthenticated()" th:href="@{/Motor}">MotorTrend</a>
 		<a sec:authorize="isAnonymous()" th:href="@{/member/signup}">Join</a>

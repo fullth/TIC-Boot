@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		// formLogin
 		http.formLogin()
-			.loginPage("/member/login") 		// .loginPage를 설정하지 않고 /login에 접속하면 기본제공 레이아웃이 뜬다.
+			//.loginPage("/member/login") 		// .loginPage를 설정하지 않고 /login에 접속하면 기본제공 레이아웃이 뜬다.
 			//.failureHandler(AuthFailureHandler) // 커스텀 로그인보다 앞에 작성하게되면 기본제공 레이아웃을 사용하게 된다.
 			.defaultSuccessUrl("/")
 			.permitAll();
